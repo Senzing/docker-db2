@@ -47,20 +47,11 @@ docker build --tag senzing/db2 https://github.com/senzing/docker-db2.git
     export SENZING_DIR=/opt/senzing
     ```
 
-    Identify the path on local system where the database files are to be stored.
-    Default: `/storage/docker/senzing/docker-compose-db2-demo`.
-    Example:
-
-    ```console
-    export DB2_STORAGE=/storage/docker/senzing/docker-compose-db2-demo
-    ```
-
     Run docker container.
 
     ```console
     docker run -it  \
       --volume ${SENZING_DIR}:/opt/senzing \
-      --volume ${DB2_STORAGE}:/home/db2inst1/db2inst1 \
       --env DB2INST1_PASSWORD=${DB2INST1_PASSWORD} \
       --env LICENSE="accept" \
       senzing/db2
@@ -83,7 +74,6 @@ docker build --tag senzing/db2 https://github.com/senzing/docker-db2.git
     ```console
     docker run -it  \
       --volume ${SENZING_DIR}:/opt/senzing \
-      --volume ${DB2_STORAGE}:/home/db2inst1/db2inst1 \
       --net ${DB2_NETWORK} \
       --env DB2INST1_PASSWORD=${DB2INST1_PASSWORD} \
       --env LICENSE="accept" \
