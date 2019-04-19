@@ -14,7 +14,7 @@ a.k.a. [Command line processor](https://www.ibm.com/support/knowledgecenter/en/S
 ## Create docker container
 
 ```console
-docker build --tag senzing/db2 https://github.com/senzing/docker-db2.git
+sudo docker build --tag senzing/db2 https://github.com/senzing/docker-db2.git
 ```
 
 ## Run Docker container
@@ -31,7 +31,7 @@ docker build --tag senzing/db2 https://github.com/senzing/docker-db2.git
     Run docker container.
 
     ```console
-    docker run -it  \
+    sudo docker run -it  \
       --env DB2INST1_PASSWORD=${DB2INST1_PASSWORD} \
       --env LICENSE="accept" \
       senzing/db2
@@ -50,7 +50,7 @@ docker build --tag senzing/db2 https://github.com/senzing/docker-db2.git
     Run docker container.
 
     ```console
-    docker run -it  \
+    sudo docker run -it  \
       --volume ${SENZING_DIR}:/opt/senzing \
       --env DB2INST1_PASSWORD=${DB2INST1_PASSWORD} \
       --env LICENSE="accept" \
@@ -63,7 +63,7 @@ docker build --tag senzing/db2 https://github.com/senzing/docker-db2.git
     Example:
 
     ```console
-    docker network ls
+    sudo docker network ls
 
     # Choose value from NAME column of docker network ls
     export DB2_NETWORK=nameofthe_network
@@ -72,7 +72,7 @@ docker build --tag senzing/db2 https://github.com/senzing/docker-db2.git
     Run docker container.
 
     ```console
-    docker run -it  \
+    sudo docker run -it  \
       --volume ${SENZING_DIR}:/opt/senzing \
       --net ${DB2_NETWORK} \
       --env DB2INST1_PASSWORD=${DB2INST1_PASSWORD} \
